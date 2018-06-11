@@ -1,7 +1,11 @@
 
 .dice {
-  height: 100px;
-  width:100px ;
-  border: 1px solid #000;
-  margin: auto;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  line-height: 75px;
+  font-size:18px;
+  font-family: 'Ubuntu';
 }
