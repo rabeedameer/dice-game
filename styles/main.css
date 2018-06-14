@@ -8,4 +8,9 @@
   line-height: 75px;
   font-size:18px;
   font-family: 'Ubuntu';
+  display: inline-block;
+}
+.container {
+  min-height: 100vh;
+
 }

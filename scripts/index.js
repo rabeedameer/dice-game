@@ -1,26 +1,37 @@
-
-
-function getRandomInt(){
-	const randomTo6 = () => Math.floor(Math.random() * 7);
-	if(randomTo6() === 1){
-		return 1;
-	}else if (randomTo6() === 2){
-		return 2;
-	} else if (randomTo6() === 3){
-		return 3;
-	}else if (randomTo6() === 4){
-		return 4;
-	}else if (randomTo6() === 5){
-		return 5;
-	}else {
-		return 6;
-	}
-
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// console.log(getRandomInt());
+let firstDice = {
+  value: 1,
+  roll: () => {
+    this.value = getRandomInt(1, 6);
+    return this.value;
+  }
+};
+let secondDice = {
+  value: 1,
+  roll: () => {
+    this.value = getRandomInt(1, 6);
+    return this.value;
+  }
+};
 
-const currentDiv = document.querySelectorAll('.dice');
-currentDiv.innerText = getRandomInt();
 
-getRandomInt();
+
+function backgroundImage(firstImage, secondImage) {
+  let diceFirstSide = document.querySelector('#first-dice');
+  let diceSecondSide = document.querySelector('#second-dice');
+  diceFirstSide.style['background-image'] = `url(dice-images/dice-${firstImage}.svg)`;
+  diceSecondSide.style['background-image'] = `url(dice-images/dice-${secondImage}.svg)`;
+}
+let button = document.querySelector('#dice-roll');
+button.addEventListener('click', event => {
+  let result1 = firstDice.roll();
+  let result2 = secondDice.roll();
+  backgroundImage(result1, result2);
+
+});
+backgroundImage(diceFirstSide.value, diceSecondSide.value);
